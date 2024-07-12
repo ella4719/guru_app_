@@ -7,9 +7,9 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="75dp"
-        android:layout_height="20dp"
-        android:text="안녕하세요."
+        android:layout_width="314dp"
+        android:layout_height="47dp"
+        android:text="TEST : main -> master(default)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
