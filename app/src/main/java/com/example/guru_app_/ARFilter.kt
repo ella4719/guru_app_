@@ -1,0 +1,48 @@
+package com.example.guru_app_
+
+import android.content.Intent
+import android.net.Uri
+import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import com.example.guru_app_.shelf.BookShelfActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+class ARFilter : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_ar_filter)
+
+        val navView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        navView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    true
+                }
+                R.id.navigation_bookshelf -> {
+                    startActivity(Intent(this, BookShelfActivity::class.java))
+                    true
+                }
+                R.id.navigation_arfilter -> {
+                    true
+                }
+                R.id.navigation_mypage -> {
+                    startActivity(Intent(this, MyPageActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
+
+        val toInstagramButton: Button = findViewById(R.id.to_instagram)
+        toInstagramButton.setOnClickListener {
+            val url = "https://www.instagram.com/ar/1996595037449441/"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
+
+
+    }
+}

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/blue_500"
+    tools:context=".HomeActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <SearchView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/round_border"
+                android:focusable="true"
+                android:padding="20dp"
+                app:iconifiedByDefault="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_weight="1"
+                app:queryHint="검색어를 입력하시오"
+                style="@style/CustomTextViewStyle">
+
+            </SearchView>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ReadingBook📖"
+                android:textAlignment="viewStart"
+                android:textColorLink="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                style="@style/CustomTextViewStyle"/>
+
+            <GridLayout
+                android:id="@+id/homegrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_border"
+                android:backgroundTint="@color/blue_200"
+                android:columnCount="3"
+                android:orientation="horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:backgroundTint="@color/blue_200"
+                    android:padding="8dp"
+                    android:background="@drawable/round_border"
+                    tools:ignore="MissingConstraints"
+                    tools:listitem="@layout/item_book_image">
+                </androidx.recyclerview.widget.RecyclerView>
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/popBook"
+                android:layout_width="229dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/round_border"
+                android:gravity="center"
+                android:text="     📚인기 도서     "
+                android:textSize="20sp"
+                android:textStyle="bold"
+                style="@style/CustomTextViewStyle"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/PopBook"
+                android:layout_width="match_parent"
+                android:layout_height="231dp"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:orientation="vertical"
+                android:padding="8dp"
+                tools:ignore="MissingConstraints"
+                tools:listitem="@layout/item_pop_book">
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
